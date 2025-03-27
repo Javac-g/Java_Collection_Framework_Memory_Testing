@@ -79,7 +79,7 @@ public class ObjectSizeFetcher {
 }
 ```
 ### Example 2: Manual Estimation
-
+```java
 // For a LinkedList node, let's estimate manually:
 public class LinkedListNode {
     Object data;  // 8 bytes for reference
@@ -90,7 +90,7 @@ public class LinkedListNode {
         this.next = next;
     }
 }
-
+```
 ### Example 3: Using VisualVM
 
 Run your Java program with VisualVM attached.
@@ -100,7 +100,7 @@ Use the profiler to monitor memory usage.
 Analyze the heap dumps and object memory consumption.
 
 ### Example 4: Using Unsafe (Advanced)
-
+```java
 import sun.misc.Unsafe;
 
 public class UnsafeMemoryExample {
@@ -122,6 +122,7 @@ public class UnsafeMemoryExample {
         System.out.println(unsafe.getAddress(0L));  // Low-level memory access
     }
 }
+```
 Conclusion
 These methods provide different ways to estimate and measure the memory usage of Java collections and data structures. Each approach has its own advantages and trade-offs, so you can choose the one that best fits your use case.
 
