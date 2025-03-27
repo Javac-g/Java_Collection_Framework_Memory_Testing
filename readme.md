@@ -1,6 +1,6 @@
 # Java Collection Memory Usage Estimation
 
-This repository provides various approaches for estimating the memory usage of Java collections and data structures like `LinkedList`, `ArrayList`, `HashMap`, and more. These methods will help you understand how much memory your collections consume in different scenarios.
+This repository provides various approaches for estimating the memory usage of Java collections and data structures like `LinkedList`, `ArrayList`, `HashMap`, and more. 
 
 ## Approaches to Estimate Memory Usage
 
@@ -93,11 +93,11 @@ public class LinkedListNode {
 ```
 ### Example 3: Using VisualVM
 
-Run your Java program with VisualVM attached.
-
-Use the profiler to monitor memory usage.
-
-Analyze the heap dumps and object memory consumption.
+   - Run your Java program with VisualVM attached.
+   
+   - Use the profiler to monitor memory usage.
+   
+   - Analyze the heap dumps and object memory consumption.
 
 ### Example 4: Using Unsafe (Advanced)
 ```java
@@ -123,16 +123,16 @@ public class UnsafeMemoryExample {
     }
 }
 ```
-Conclusion
-These methods provide different ways to estimate and measure the memory usage of Java collections and data structures. Each approach has its own advantages and trade-offs, so you can choose the one that best fits your use case.
-
-For further exploration:
-
-Explore Java profilers like VisualVM or YourKit for real-time memory profiling.
-
-Use java.lang.instrument for more precise memory size measurement in production environments.
-
-Use manual estimation for quick memory analysis without needing external tools.
+### Conclusion
+   - These methods provide different ways to estimate and measure the memory usage of Java collections and data structures. Each approach has its own advantages and trade-offs, so you can choose the one that best fits your use case.
+   
+   - For further exploration:
+   
+   - Explore Java profilers like VisualVM or YourKit for real-time memory profiling.
+   
+   - Use java.lang.instrument for more precise memory size measurement in production environments.
+   
+   - Use manual estimation for quick memory analysis without needing external tools.
 
 # Memory Usage of Java Collections and Primitive Types
 
@@ -245,6 +245,7 @@ The reference in the array takes 8 bytes (since it's a 64-bit JVM).
 
 **Total: 32 bytes.**
 
+# All implementations
 
 ### LinkedList
 A `LinkedList` is implemented as a doubly linked list, where each node contains a reference to the data (`item`), a reference to the next node (`next`), and a reference to the previous node (`prev`).
@@ -274,80 +275,19 @@ A `HashSet` is backed by a `HashMap`, where the elements are stored as keys with
 |--------------------|-----------------------------------|-----------------------------------|
 | `HashSet` (Element) | `16 bytes (key) + 8 bytes (reference)` = **24 bytes** | `24 bytes (key) + 16 bytes (reference)` = **40 bytes** |
 
-## 4. Full Cross-Referenced Summary Table
+### Queue (LinkedList Implementation)
+`Queue` implementations like `LinkedList` store references to the next and previous elements, similar to the `LinkedList` itself.
 
-This table provides the memory usage across different collection types (e.g., `LinkedList`, `ArrayList`, `HashMap`, `HashSet`) for all primitive and wrapper types:
+| **Collection**     | **Size (32-bit JVM)** | **Size (64-bit JVM)** |
+|--------------------|-----------------------|-----------------------|
+| `Queue` (LinkedList) | 40 bytes            | 64 bytes              |
 
-| **Collection**            | **Data Type**   | **Size (32-bit JVM)** | **Size (64-bit JVM)** |
-|---------------------------|-----------------|-----------------------|-----------------------|
-| `LinkedList` (Node)       | `byte`          | 40 bytes              | 64 bytes              |
-|                           | `short`         | 40 bytes              | 64 bytes              |
-|                           | `int`           | 40 bytes              | 64 bytes              |
-|                           | `long`          | 40 bytes              | 64 bytes              |
-|                           | `float`         | 40 bytes              | 64 bytes              |
-|                           | `double`        | 40 bytes              | 64 bytes              |
-|                           | `char`          | 40 bytes              | 64 bytes              |
-|                           | `boolean`       | 40 bytes              | 64 bytes              |
-|                           | `Byte`          | 40 bytes              | 64 bytes              |
-|                           | `Short`         | 40 bytes              | 64 bytes              |
-|                           | `Integer`       | 40 bytes              | 64 bytes              |
-|                           | `Long`          | 40 bytes              | 64 bytes              |
-|                           | `Float`         | 40 bytes              | 64 bytes              |
-|                           | `Double`        | 40 bytes              | 64 bytes              |
-|                           | `Character`     | 40 bytes              | 64 bytes              |
-|                           | `Boolean`       | 40 bytes              | 64 bytes              |
-|                           | `Object`        | 40 bytes              | 64 bytes              |
-| `ArrayList` (Element)     | `byte`          | 20 bytes              | 32 bytes              |
-|                           | `short`         | 20 bytes              | 32 bytes              |
-|                           | `int`           | 20 bytes              | 32 bytes              |
-|                           | `long`          | 20 bytes              | 32 bytes              |
-|                           | `float`         | 20 bytes              | 32 bytes              |
-|                           | `double`        | 20 bytes              | 32 bytes              |
-|                           | `char`          | 20 bytes              | 32 bytes              |
-|                           | `boolean`       | 20 bytes              | 32 bytes              |
-|                           | `Byte`          | 20 bytes              | 32 bytes              |
-|                           | `Short`         | 20 bytes              | 32 bytes              |
-|                           | `Integer`       | 20 bytes              | 32 bytes              |
-|                           | `Long`          | 20 bytes              | 32 bytes              |
-|                           | `Float`         | 20 bytes              | 32 bytes              |
-|                           | `Double`        | 20 bytes              | 32 bytes              |
-|                           | `Character`     | 20 bytes              | 32 bytes              |
-|                           | `Boolean`       | 20 bytes              | 32 bytes              |
-|                           | `Object`        | 20 bytes              | 32 bytes              |
-| `HashMap` (Entry)         | `byte`          | 40 bytes              | 64 bytes              |
-|                           | `short`         | 40 bytes              | 64 bytes              |
-|                           | `int`           | 40 bytes              | 64 bytes              |
-|                           | `long`          | 40 bytes              | 64 bytes              |
-|                           | `float`         | 40 bytes              | 64 bytes              |
-|                           | `double`        | 40 bytes              | 64 bytes              |
-|                           | `char`          | 40 bytes              | 64 bytes              |
-|                           | `boolean`       | 40 bytes              | 64 bytes              |
-|                           | `Byte`          | 40 bytes              | 64 bytes              |
-|                           | `Short`         | 40 bytes              | 64 bytes              |
-|                           | `Integer`       | 40 bytes              | 64 bytes              |
-|                           | `Long`          | 40 bytes              | 64 bytes              |
-|                           | `Float`         | 40 bytes              | 64 bytes              |
-|                           | `Double`        | 40 bytes              | 64 bytes              |
-|                           | `Character`     | 40 bytes              | 64 bytes              |
-|                           | `Boolean`       | 40 bytes              | 64 bytes              |
-|                           | `Object`        | 40 bytes              | 64 bytes              |
-| `HashSet` (Element)       | `byte`          | 24 bytes              | 40 bytes              |
-|                           | `short`         | 24 bytes              | 40 bytes              |
-|                           | `int`           | 24 bytes              | 40 bytes              |
-|                           | `long`          | 24 bytes              | 40 bytes              |
-|                           | `float`         | 24 bytes              | 40 bytes              |
-|                           | `double`        | 24 bytes              | 40 bytes              |
-|                           | `char`          | 24 bytes              | 40 bytes              |
-|                           | `boolean`       | 24 bytes              | 40 bytes              |
-|                           | `Byte`          | 24 bytes              | 40 bytes              |
-|                           | `Short`         | 24 bytes              | 40 bytes              |
-|                           | `Integer`       | 24 bytes              | 40 bytes              |
-|                           | `Long`          | 24 bytes              | 40 bytes              |
-|                           | `Float`         | 24 bytes              | 40 bytes              |
-|                           | `Double`        | 24 bytes              | 40 bytes              |
-|                           | `Character`     | 24 bytes              | 40 bytes              |
-|                           | `Boolean`       | 24 bytes              | 40 bytes              |
-|                           | `Object`        | 24 bytes              | 40 bytes              |
+### Queue (ArrayDeque Implementation)
+`ArrayDeque` is a dynamic array that grows as needed, storing references to the objects in the queue.
+
+| **Collection**     | **Size (32-bit JVM)** | **Size (64-bit JVM)** |
+|--------------------|-----------------------|-----------------------|
+| `Queue` (ArrayDeque) | 20 bytes            | 32 bytes              |
 
 
 ## Additional Notes
@@ -355,5 +295,4 @@ This table provides the memory usage across different collection types (e.g., `L
 - Memory usage can also differ depending on JVM-specific implementation details and whether the object is cached (as in the case of small integers and booleans).
 - The size of the object may also depend on internal padding and alignment to satisfy JVM requirements for optimal memory access.
 
-This table should give you a good estimate of memory usage for various data types and collections in Java.
 
